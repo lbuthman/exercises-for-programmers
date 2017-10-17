@@ -29,7 +29,7 @@ public class MainV2 {
             totalSlices += slices;
         }
 
-        Map<String,Integer> pizzasToOrder = new HashMap<String, Integer>();
+        Map<String,Integer> pizzasToOrder = new HashMap<>();
         pizzasToOrder.put("Small", 0);
         pizzasToOrder.put("Medium", 0);
         pizzasToOrder.put("Large", 0);
