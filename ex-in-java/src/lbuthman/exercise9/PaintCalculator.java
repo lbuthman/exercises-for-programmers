@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import static tools.Tools.*;
 
-public class Main {
+public class PaintCalculator {
      private static int GALLONS_IN_FEET = 350;
 
     public static void main(String[] args) {

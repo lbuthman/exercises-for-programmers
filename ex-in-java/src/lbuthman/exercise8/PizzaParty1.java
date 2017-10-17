@@ -3,7 +3,7 @@ package lbuthman.exercise8;
 import java.util.Scanner;
 import static tools.Tools.*;
 
-public class MainV1 {
+public class PizzaParty1 {
     public static void main(String[] args) {
 
         int SLICES_PER_PIZZA = 8;

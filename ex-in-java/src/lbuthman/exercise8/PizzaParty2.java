@@ -9,7 +9,7 @@ import java.util.Map;
 import static tools.Tools.*;
 
 
-public class MainV2 {
+public class PizzaParty2 {
     public static void main(String[] args) {
 
         Scanner scanner = getScanner();

@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import static tools.Tools.*;
 
-public class Main {
+public class FeetToMeterCalculator {
     public static void main(String[] args) {
 
         Scanner input = getScanner();
