@@ -33,6 +33,9 @@ public class BMICalculator {
         }
         else {
             println("You are within the ideal weight range.");
+            return;
         }
+
+        println("You should see your doctor.");
     }
 }
