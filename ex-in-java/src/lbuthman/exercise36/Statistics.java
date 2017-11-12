@@ -24,37 +24,62 @@ public class Statistics {
             }
         }
 
-        double total = times.get(0);
-        double minimum = times.get(0);
-        double maximum = times.get(0);
+        double minimum = calculateMinimum(times);
+        double maximum = calculateMaximum(times);
 
         print("Numbers: " + times.get(0));
 
         for (int i=1; i<times.size(); i++) {
             print(", " + times.get(i));
-            total += times.get(i);
-            minimum = minimum < times.get(i) ? minimum : times.get(i);
-            maximum = maximum > times.get(i) ? maximum : times.get(i);
         }
 
-        double mean = total / times.size();
+        double mean = calculateAverage(times);
 
-        List<Double> differencesFromMean = new ArrayList<>();
-        double totalOfDifferencesFromMean = 0;
-        for (int i=0; i<times.size(); i++) {
-            double difference =  times.get(i) - mean;
-            differencesFromMean.add(Math.pow(difference, 2));
-
-            totalOfDifferencesFromMean += differencesFromMean.get(i);
-        }
-
-        double meanOfDifferencesFromMean = totalOfDifferencesFromMean / differencesFromMean.size();
-        double standardDeviation = Math.sqrt(meanOfDifferencesFromMean);
+        double standardDeviation = calculateStandardDeviation(times, mean);
 
         println("");
         println("The average is " + mean);
         println("The minimum is " + minimum);
         println("The maximum is " + maximum);
         println("The standard deviation is " + df.format(standardDeviation));
+        println("Goodbye");
+    }
+
+    private static double calculateAverage(List<Double> numbers) {
+        double total = 0;
+        for (Double n: numbers) {
+            total += n;
+        }
+        return total / numbers.size();
+    }
+
+    private static double calculateMinimum(List<Double> numbers) {
+        double minimum = numbers.get(0);
+        for (Double n : numbers) {
+            minimum = minimum < n ? minimum : n;
+        }
+        return minimum;
+    }
+
+    private static double calculateMaximum(List<Double> numbers) {
+        double maximum = numbers.get(0);
+        for (Double n: numbers) {
+            maximum = maximum > n ? maximum : n;
+        }
+        return maximum;
+    }
+
+    private static double calculateStandardDeviation(List<Double> numbers, double mean) {
+        List<Double> differencesFromMean = new ArrayList<>();
+        double totalOfDifferencesFromMean = 0;
+
+        for (int i=0; i<numbers.size(); i++) {
+            double difference =  numbers.get(i) - mean;
+            differencesFromMean.add(Math.pow(difference, 2));
+            totalOfDifferencesFromMean += differencesFromMean.get(i);
+        }
+
+        double meanOfDifferencesFromMean = totalOfDifferencesFromMean / differencesFromMean.size();
+        return Math.sqrt(meanOfDifferencesFromMean);
     }
 }
