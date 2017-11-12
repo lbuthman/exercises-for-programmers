@@ -38,10 +38,10 @@ public class PasswordGenerator {
         int remainingCharacters = minLength - specialLength - numLength;
         for (int i=0; i<remainingCharacters; i++) {
             if (i % 2 == 0) {
-                passwordCharacters.add(generateUppercase());
+                passwordCharacters.add(generateCharacter('A'));
             }
             else {
-                passwordCharacters.add(generateLowercase());
+                passwordCharacters.add(generateCharacter('a'));
             }
         }
 
@@ -74,15 +74,9 @@ public class PasswordGenerator {
         return numbers.get(random);
     }
 
-    private static String generateUppercase() {
+    private static String generateCharacter(char charCase) {
         int random = (int) (Math.random() * 52);
-        char randomChar = (char) ('A' + random % 26);
-        return String.valueOf(randomChar);
-    }
-
-    private static String generateLowercase() {
-        int random = (int) (Math.random() * 52);
-        char randomChar = (char) ('a' + random % 26);
+        char randomChar = (char) (charCase + random % 26);
         return String.valueOf(randomChar);
     }
 }
