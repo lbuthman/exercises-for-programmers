@@ -4,11 +4,14 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import static tools.Tools.*;
 
 public class SortingRecords {
     public static void main(String[] args) {
+        Scanner input = getScanner();
 
         List<Employee> employees = new ArrayList<>();
         employees.add(
@@ -24,13 +27,20 @@ public class SortingRecords {
         employees.add(
                 new Employee("Sally", "Weber", "Web Developer", LocalDate.parse("2015-12-18")));
 
+        print("Enter a name to search: ");
+        String search = input.next().toLowerCase();
+
+        List<Employee> foundEmployees = employees.stream()
+                .filter(e -> e.getLastName().toLowerCase().contains(search) ||
+                        e.getFirstName().toLowerCase().contains(search)).collect(Collectors.toList());
+
         //employees.sort((Employee e1, Employee e2) -> e1.getLastName().compareTo(e2.getLastName()));
-        employees.sort(Comparator.comparing(Employee::getLastName));
+        foundEmployees.sort(Comparator.comparing(Employee::getLastName));
 
         println("First Name\t|\tLastName\t|\tPosition\t|\tSeparation Date");
         println("----------------------------------------------------------------");
 
-        for (Employee e: employees) {
+        for (Employee e: foundEmployees) {
             print(e.getFirstName() + "\t\t");
             print(e.getLastName() + "\t\t");
             print(e.getPosition() + "\t\t");
