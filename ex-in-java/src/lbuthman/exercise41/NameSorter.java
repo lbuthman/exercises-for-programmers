@@ -1,6 +1,7 @@
 package lbuthman.exercise41;
 
 import java.nio.file.Path;
+import java.util.Comparator;
 import java.util.stream.Stream;
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -20,6 +21,7 @@ public class NameSorter {
             Stream<String> lines = Files.lines(Paths.get("files","names.txt"));
             lines.forEach(names::add);
             lines.close();
+            names.sort(Comparator.comparing(String::toString));
 
         }
         catch (IOException e) {
