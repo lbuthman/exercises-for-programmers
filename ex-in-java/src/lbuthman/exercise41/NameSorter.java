@@ -1,6 +1,5 @@
 package lbuthman.exercise41;
 
-import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.stream.Stream;
 import java.nio.file.Files;
