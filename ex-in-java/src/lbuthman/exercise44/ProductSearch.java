@@ -34,7 +34,7 @@ public class ProductSearch {
             print("What is the Product name? ");
             productName = input.next();
 
-            if (json.contains(productName)) {
+            if (json.toLowerCase().contains(productName.toLowerCase())) {
                 break;
             }
             print("Sorry, that product was not found in our inventory.");
@@ -43,7 +43,7 @@ public class ProductSearch {
 
         JsonNode products = root.get("products");
         for (int i=0; i<products.size(); i++) {
-            if (products.get(i).get("name").textValue().equals(productName)) {
+            if (products.get(i).get("name").textValue().toLowerCase().equals(productName.toLowerCase())) {
                 println("Name: " + products.get(i).get("name").textValue());
                 println("Price: " + numberFormat.format(products.get(i).get("price").asDouble()));
                 println("Quantity on Hand: " + products.get(i).get("quantity").asInt());
