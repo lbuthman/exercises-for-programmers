@@ -1,4 +1,4 @@
-package lbuthman.exericse47;
+package lbuthman.exercise47;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
