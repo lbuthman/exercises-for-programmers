@@ -6,3 +6,5 @@ ex-in-java/out/*
 lib/
 
 *.iml
+
+ex-in-java/src/tools/Keys.java
